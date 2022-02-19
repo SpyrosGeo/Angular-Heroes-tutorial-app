@@ -1,0 +1,16 @@
+<h2>My Heroes</h2>
+<div>
+  <label for="new-hero"></label>
+  <input id="new-hero" #heroName/>
+  <button type="button" class="add-button" (click)="add(heroName.value);heroName.value=''">Add</button>
+</div>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+<!-- this is called  property binding -->
+<!-- this part works like passing props in React. To make it work i need to use Input decorator in the child components class and then initiate a varable hero there -->
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
