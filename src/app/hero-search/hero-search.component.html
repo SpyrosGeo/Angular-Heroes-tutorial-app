@@ -1,0 +1,13 @@
+<div id="search-compoment">
+    <label for="search-box">Hero Search</label>
+    <input #searchBox id="search-box"
+    (input)="search(searchBox.value)"
+    />
+    <ul class="search-result">
+        <!-- $ is a convension that indicates heroes$ is an observable not an array -->
+        <!-- async pipe | subscribes to an observable automatically so no need to do anything  in compoment class -->
+        <li *ngFor="let hero of heroes$|async"> 
+            <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+        </li>
+    </ul>
+</div>
